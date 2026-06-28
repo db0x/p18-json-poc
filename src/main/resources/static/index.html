@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-Dokument bearbeiten</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/idea.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <h1>JSON-Dokument bearbeiten</h1>
+
+    <div class="row">
+        <input type="text" id="uuid" placeholder="UUID eingeben…" autocomplete="off">
+        <button id="loadBtn">Laden</button>
+        <button id="saveBtn" disabled>Speichern</button>
+    </div>
+
+    <textarea id="editor"></textarea>
+    <div id="status"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
