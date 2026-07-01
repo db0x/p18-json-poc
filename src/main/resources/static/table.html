@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-Dokumente – Tabelle</title>
+
+    <link rel="stylesheet" href="./lib/codemirror.min.css">
+    <link rel="stylesheet" href="./lib/idea.min.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <h1>JSON-Dokumente</h1>
+    <nav class="top"><a href="index.html">→ Einzeldokument bearbeiten</a></nav>
+
+    <div class="filter">
+        <label for="filterInput">Filter</label>
+        <input type="search" id="filterInput" placeholder="Volltextsuche über die JSON-Werte…"
+               autocomplete="off" spellcheck="false">
+        <button id="clearFilterBtn" type="button" title="Filter zurücksetzen">×</button>
+    </div>
+
+    <table class="docs">
+        <thead>
+            <tr><th></th><th>id</th><th>name</th><th>city</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+    </table>
+
+    <div class="pager">
+        <button id="prevBtn" disabled>Zurück</button>
+        <span id="pageInfo" class="muted"></span>
+        <button id="nextBtn" disabled>Weiter</button>
+        <span class="jump">
+            <label for="gotoInput">Gehe zu Seite</label>
+            <input type="number" id="gotoInput" min="1" inputmode="numeric">
+            <button id="gotoBtn" disabled>Springen</button>
+        </span>
+    </div>
+    <div id="status"></div>
+
+    <script src="./lib/codemirror.min.js"></script>
+    <script src="./lib/javascript.min.js"></script>
+    <script src="table.js"></script>
+</body>
+</html>

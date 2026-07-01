@@ -13,3 +13,31 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: false
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+
+logging:
+  file:
+    name: logs/json-poc.log
+  structured:
+    format:
+      # JSON log lines in the file, shipped to Loki by Alloy; console stays human-readable
+      file: logstash
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+  metrics:
+    tags:
+      application: json-poc
+    distribution:
+      # enables histogram buckets so Grafana can compute latency percentiles
+      percentiles-histogram:
+        http.server.requests: true

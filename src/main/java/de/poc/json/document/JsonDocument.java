@@ -1,4 +1,4 @@
-package de.poc.json.entity;
+package de.poc.json.document;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;

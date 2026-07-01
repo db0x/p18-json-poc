@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: 'json-poc'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      # App runs on the host (see application.yml -> localhost:5432).
+      # host.docker.internal is mapped via extra_hosts in docker-compose.yml.
+      - targets: ['host.docker.internal:8080']

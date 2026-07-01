@@ -3,7 +3,33 @@ h1 { font-size: 1.4rem; }
 .row { display: flex; gap: .5rem; margin-bottom: 1rem; }
 input[type=text] { flex: 1; padding: .5rem; font-family: monospace; }
 button { padding: .5rem 1rem; cursor: pointer; }
+button.danger { color: #cf222e; border-color: #cf222e; }
+button.danger:not(:disabled):hover { background: #cf222e; color: #fff; }
 .CodeMirror { height: 75vh; min-height: 500px; border: 1px solid #d0d7de; border-radius: 4px; font-size: .9rem; }
 #status { margin-top: .75rem; min-height: 1.2rem; font-size: .9rem; }
 .ok { color: #1a7f37; }
 .err { color: #cf222e; }
+
+nav.top { margin-bottom: 1rem; }
+nav.top a { margin-right: 1rem; }
+.muted { color: #57606a; }
+
+.filter { display: flex; gap: .5rem; align-items: center; margin-bottom: 1rem; }
+.filter label { color: #57606a; font-size: .9rem; }
+.filter input[type=search] { flex: 1; padding: .45rem .6rem; font-size: .9rem; border: 1px solid #d0d7de; border-radius: 4px; }
+.filter button { cursor: pointer; background: none; border: 1px solid #d0d7de; border-radius: 4px; padding: .35rem .6rem; font-size: 1rem; line-height: 1; color: #57606a; }
+
+table.docs { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+table.docs th, table.docs td { text-align: left; padding: .5rem; border-bottom: 1px solid #d0d7de; font-size: .9rem; }
+table.docs th { background: #f6f8fa; }
+table.docs td.mono { font-family: monospace; }
+table.docs tr.detail td { background: #fafbfc; }
+table.docs tr.highlight td { background: #fff8c5; }
+table.docs pre { margin: 0; font-size: .85rem; white-space: pre-wrap; word-break: break-word; }
+.expand-btn { cursor: pointer; background: none; border: none; font-size: 1rem; padding: .1rem .4rem; }
+.pager { display: flex; gap: .75rem; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+.pager .jump { display: flex; gap: .4rem; align-items: center; margin-left: auto; }
+.pager .jump label { color: #57606a; font-size: .9rem; }
+.pager input[type=number] { width: 4.5rem; padding: .4rem; }
+/* read-only JSON preview in the detail row: size to content, not full height */
+table.docs .CodeMirror { height: auto; min-height: 0; max-height: 60vh; border: 1px solid #d0d7de; border-radius: 4px; }

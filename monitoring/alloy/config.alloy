@@ -1,0 +1,38 @@
+// Tails the application log file (written as Logstash-style JSON by Spring Boot)
+// and ships the lines to Loki.
+
+local.file_match "app" {
+  path_targets = [{
+    __path__ = "/var/log/app/json-poc.log",
+    app      = "json-poc",
+  }]
+}
+
+loki.source.file "app" {
+  targets    = local.file_match.app.targets
+  forward_to = [loki.process.app.receiver]
+}
+
+loki.process "app" {
+  // parse the JSON log line and promote a few fields to labels
+  stage.json {
+    expressions = {
+      level  = "level",
+      logger = "logger_name",
+    }
+  }
+
+  stage.labels {
+    values = {
+      level = "",
+    }
+  }
+
+  forward_to = [loki.write.default.receiver]
+}
+
+loki.write "default" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}
